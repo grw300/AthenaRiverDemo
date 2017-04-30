@@ -26,7 +26,7 @@ SECRET_KEY = 'rl_@xpkc90(wf=f2h(xeji8=c1o@kx3jlp%_vnvn$p-_b=2o@8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'river-athena.herokuapp.com']
 
 
 # Application definition
