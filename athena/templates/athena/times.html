@@ -1,0 +1,20 @@
+<h2>Ron Swanson MD</h2>
+<div class="row">
+    <div align="right"; class="6u 12u$(xsmall)">
+        <strong>Athena EHR</strong>
+        {% for times in ehr_times %}
+        <font color=red>
+            <li>{{ times }}</li>
+        </font>
+        {% endfor %}
+    </div>
+    <div class="6u 12u$(xsmall)">
+        <strong>RTLS</strong>
+        {% for times in rtls_times %} 
+        <font color=blue>
+            <li>{{ times }}</li>
+        </font>
+        {% endfor %}
+    </div>
+    <br style="clear:both;"/>
+</div>

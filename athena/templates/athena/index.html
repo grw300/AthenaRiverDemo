@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+{% load static %}
+<html>
+	<head>
+		<title>rivER Dashboard</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="{% static 'athena/assets/css/main.css' %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+                    <a href="#" class="image avatar"><img src="{% static 'athena/images/avatar.png' %}" alt="" /></a>
+					<h1><strong>rivER</strong>
+                    <br />
+                    <br />
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>A timeline of rivER MD's.</h2>
+						</header>
+                        <p>All information in <font color=red>red</font> is pulled from the Athena API. Information in <font color=blue>blue</font> is populated with the RTLS system.</p>
+					</section>
+
+				<!-- Two -->
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+                    </script>
+                     <script type="text/javascript">
+
+
+                        $( document ).ready(function() {
+                           setInterval(function(){
+                               $.ajax({
+                                   url:'/athena/get_times' ,
+                                   type: "get",
+                                   cache: true,
+                                   timeout: 30000,
+                                   dataType: 'html',
+                                   success: function(data) {
+                                       $('#two').html(data);
+                                   },
+                                   error: function(data) {
+                                   }
+                               });
+                           },3000);
+                        });
+
+                     </script>
+					<section id="two">
+                        <!--<div class="row">
+                            <div align="right"; class="6u 12u$(xsmall)">
+                                <strong>Athena EHR</strong>
+                                {% for times in ehr_times %}
+                                <font color=red>
+                                    <li>{{ times }}</li>
+                                </font>
+                                {% endfor %}
+                            </div>
+                            <div class="6u 12u$(xsmall)">
+                                <strong>RTLS</strong>
+                                {% for times in rtls_times %} 
+                                <font color=blue>
+                                    <li>{{ times }}</li>
+                                </font>
+                                {% endfor %}
+                            </div>
+                            <br style="clear:both;"/>
+                        </div>A-->
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Get In Touch</h2>
+						<p>If you want to learn more about rivER, fill out your contact info and we'll get in touch.</p>
+						<div class="row">
+							<div class="8u 12u$(small)">
+								<form method="post" action="#">
+									<div class="row uniform 50%">
+										<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+							<div class="4u$ 12u$(small)">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon fa-home"><span class="label">Address</span></h3>
+										1234 Somewhere Rd.<br />
+										Austin, TX 78704<br />
+										United States
+									</li>
+									<li>
+										<h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
+										<a href="#">hello@river.not.real</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; rivER</li><li>Design: Strata from <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

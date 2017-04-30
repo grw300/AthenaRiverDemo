@@ -1,0 +1,9 @@
+{% extends "athena/index.html" %}
+
+{% block timeline %}
+    <ul>
+    {% for times in rtls_times %}
+        <li>{{ times }}</li>
+    {% endfor %}
+    </ul>
+{% endblock timeline %}
